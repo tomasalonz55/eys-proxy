@@ -1,11 +1,5 @@
 # Serverless Framework Node Express API on AWS
 
-This template demonstrates how to develop and deploy a simple Node Express API service running on AWS Lambda using the traditional Serverless Framework.
-
-## Anatomy of the template
-
-This template configures a single function, `api`, which is responsible for handling all incoming requests thanks to configured `http` events. To learn more about `http` event configuration options, please refer to [http event docs](https://www.serverless.com/framework/docs/providers/aws/events/apigateway/). As the events are configured in a way to accept all incoming requests, `express` framework is responsible for routing and handling requests internally. Implementation takes advantage of `serverless-http` package, which allows you to wrap existing `express` applications. To learn more about `serverless-http`, please refer to corresponding [GitHub repository](https://github.com/dougmoscrop/serverless-http).
-
 ## Usage
 
 ### Deployment
@@ -74,35 +68,6 @@ After successful deployment, you can call the created application via HTTP:
 curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/dev/
 ```
 
-Which should result in the following response:
-
-```
-{"message":"Hello from root!"}
-```
-
-Calling the `/hello` path with:
-
-```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/dev/hello
-```
-
-Should result in the following response:
-
-```bash
-{"message":"Hello from path!"}
-```
-
-If you try to invoke a path or method that does not have a configured handler, e.g. with:
-
-```bash
-curl https://xxxxxxx.execute-api.us-east-1.amazonaws.com/dev/nonexistent
-```
-
-You should receive the following response:
-
-```bash
-{"error":"Not Found"}
-```
 
 ### Local development
 
